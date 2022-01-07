@@ -42,7 +42,7 @@ def show_all_pokemons(request):
     for entity in pokemon_entities:
         pokemons_on_page.append({
             'pokemon_id': entity.pokemon.id,
-            'img_url': entity.pokemon.image.path,
+            'img_url': entity.pokemon.image.url,
             'title_ru': entity.pokemon.title,
         })
 
@@ -73,7 +73,9 @@ def show_pokemon(request, pokemon_id):
 
     pokemon = {
         'title_ru': requested_pokemon.title,
-        'img_url': requested_pokemon.image.path
+        'img_url': requested_pokemon.image.url,
+        'description': requested_pokemon.description,
+
     }
 
     return render(request, 'pokemon.html', context={
