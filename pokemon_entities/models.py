@@ -7,7 +7,7 @@ class Pokemon(models.Model):
     description = models.TextField(null=True)
     title_en = models.CharField(max_length=100, null=True)
     title_jp = models.CharField(max_length=100, null=True)
-    previous_evolution = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE)
+    previous_evolution = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE, related_name='next_evolution')
 
     def __str__(self):
         return f'{self.title}'
