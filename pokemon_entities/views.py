@@ -56,8 +56,6 @@ def show_pokemon(request, pokemon_id):
         requested_pokemon = Pokemon.objects.get(id=pokemon_id)
     except Pokemon.DoesNotExist:
         return HttpResponseNotFound('<h1>Такой покемон не найден</h1>')
-    except Pokemon.MultipleObjectsReturned:
-        return HttpResponseNotFound('<h1>Найдено несколько покемонов</h1>')
 
     requested_pokemon_entities = requested_pokemon.pokemon_entity.all()
 
